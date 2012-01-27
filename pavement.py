@@ -72,7 +72,7 @@ def init(options):
     if options.get('immutable'):
         git.config('--unset branch.autosetuprebase', ignore_error=True)
         git.config('--unset commit.template', ignore_error=True)
-        sed('"immutable_history": false', '"immutable_history": true', destination_arcconfig)
+        sed('"immutable_history": false', '"immutable_history": true', template, destination_arcconfig)
     else:
         git.config(
             'commit.template %s' % (
@@ -80,4 +80,4 @@ def init(options):
             )
         )
         git.config('branch.autosetuprebase always')
-        sed('"immutable_history": true', '"immutable_history": false', destination_arcconfig)
+        sed('"immutable_history": true', '"immutable_history": false', template, destination_arcconfig)
