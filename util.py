@@ -16,8 +16,6 @@ def sed(find, replace, file, into=False):
 
     if into:
         format += " > %s" % into
-    else:
-        format = "-i bak " + format
 
     sh('sed ' + (format % locals()))
 
